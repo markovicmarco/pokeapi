@@ -1,4 +1,4 @@
-mport PokedexItem from "./PokedexItem.js";
+import PokedexItem from "./PokedexItem.js";
 import {useDarkMode} from "../../provider/AuthProvider.js";
 
 const Pokedex = () => {
