@@ -1,18 +1,29 @@
 import PokedexItem from "./PokedexItem.js";
 import {useDarkMode} from "../../provider/AuthProvider.js";
+import {useState,useEffect} from 'react';
+import axios from 'axios';
 
 const Pokedex = () => {
 
-  const {isDark, darkOn, darkOff} = useDarkMode();
+  const [pokemons, setPokemons] = useState([]);
 
-  document.body.style.backgroundColor= isDark? "rgb(0,0,0)" : "rgb(255,255,255)";
+  useEffect(() => {
+    const promise = axios('https://pokeapi.co/api/v2/pokemon/?limit=10&offset=0');
+    promise.then(res => {
+      setPokemons(res.data.results);
+    });
+  }, []);
 
   return(
     <div>
-      Pokedex
-      <button onClick={() => darkOn()}>Dark On</button>
-      <button onClick={() => darkOff()}>Dark Off</button>
-      <PokedexItem/>
+      <input/>
+      {pokemons.map((value) => {
+        return(
+          <div key={value.url}>
+            <PokedexItem url={value.url}/>
+          </div>
+        )
+      })}
     </div>
   )
 }

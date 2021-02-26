@@ -19,6 +19,7 @@ export default function App() {
               <Route path="/pokedex/pokemon/:id/encounters" component={Encounters}/>
               <Route path="/pokedex/pokemon/:id" component={Pokemon}/>
               <Route path="/pokedex" component={Pokedex}/>
+              <Route path="/">Hola</Route>
             </Switch>
           </Router>
         </div>
