@@ -1,0 +1,21 @@
+/* Generic classes */
+
+.container{
+    padding: 15px;
+    margin: 0 auto;
+  }
+  
+  @media(min-width: 576px){
+    .container{max-width: 579px;}
+  
+    .row{
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  @media(min-width: 768px){
+    .container{max-width: 768px;}
+  }
+  @media(min-width: 992px){
+    .container{max-width: 992px;}
+  }
