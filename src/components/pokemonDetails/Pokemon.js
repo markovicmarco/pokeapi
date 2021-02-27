@@ -1,13 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, Header, Segment, Image } from 'semantic-ui-react';
+import { Container, Grid, Header, Segment, Image, Statistic } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 const Pokemon = () => {
 
   const {id} = useParams();
-  
 
   const [pokemon, setPokemon] = useState([]);
 
@@ -27,18 +26,64 @@ const Pokemon = () => {
     });
     }, [])
 
-    console.log(pokemon)
+    const logoFix = {
+      marginTop: -150
+    }
 
   return(
     <Container>
-      <Segment basic />
-      <Segment>
+      <Segment basic padded='very' />
+
+
+      <Segment raised inverted color='grey'>
+      <Image src='https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png' size='large' centered style={logoFix} verticalAlign='top' />
       <Image src={ pokemon.image } size='medium' centered />
-      <Header as='h3' textAlign='center'>{ pokemon.name }
+      <Header as='h1' textAlign='center'>{ pokemon.name }
       <Header.Subheader>
       #{ pokemon.id }
     </Header.Subheader>
       </Header>
+      
+      <Grid doubling columns={4}>
+
+        <Grid.Column>
+          
+          <Statistic color='green'>
+            <Statistic.Value>{pokemon.hp}</Statistic.Value>
+            <Statistic.Label>HP</Statistic.Label>
+          </Statistic>
+
+        </Grid.Column>
+
+        <Grid.Column>
+
+        <Statistic color='red'>
+            <Statistic.Value>{pokemon.attack}</Statistic.Value>
+            <Statistic.Label>Attack</Statistic.Label>
+        </Statistic>
+
+        </Grid.Column>
+
+        <Grid.Column>
+
+        <Statistic color='blue'>
+            <Statistic.Value>{pokemon.defense}</Statistic.Value>
+            <Statistic.Label>Defense</Statistic.Label>
+        </Statistic>
+
+        </Grid.Column>
+
+        <Grid.Column>
+
+        <Statistic color='teal'>
+            <Statistic.Value>{pokemon.speed}</Statistic.Value>
+            <Statistic.Label>Speed</Statistic.Label>
+        </Statistic>
+
+        </Grid.Column>
+
+      </Grid>
+    
       </Segment>
     </Container>
   )
