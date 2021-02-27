@@ -13,6 +13,7 @@
     text-align: left;
     height: 100%;
     transition: .3s;
+    text-shadow: 0 0 1.4px black;
   }
   .card:hover{
     transform: scale(1.1);

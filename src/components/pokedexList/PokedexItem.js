@@ -22,7 +22,6 @@ const PokedexItem = ({ url }) => {
         speed: res.data.stats[5].base_stat
       })
       handleColor(res.data.types[0].type.name);
-      console.log(res.data);
     });
   }, [url]);
 
