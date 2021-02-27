@@ -116,6 +116,8 @@ const PokedexItem = ({ url }) => {
         </div>
         <div className="img">
           <img src={pokemon.image} alt="" width="100%"/>
+          
+          <div className="pokeball"></div>
         </div>
       </Link>
     </div>
