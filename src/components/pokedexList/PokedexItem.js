@@ -93,10 +93,7 @@ const PokedexItem = ({ url }) => {
 
   return(
     <div className="col-lg-3 col-sm-2">
-      <Link 
-      to={`/pokedex/pokemon/${pokemon.id}`}
-      style={{background: color}} 
-      className="card">
+      <Link to={`/pokedex/pokemon/${pokemon.id}`} style={{background: color}} className="card">
         <div className="text">
           <h3>
             {pokemon.name}

@@ -1,14 +1,21 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Container, Grid, Header, Segment, Image, Statistic } from 'semantic-ui-react';
+
+import { Container, Grid, Header, Segment, Image, Label } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+
+import Pokemoncss from './Pokemon.css'
+
+// https://unpkg.com/grade-js/docs/dist/grade.js
+
+
 
 const Pokemon = () => {
 
   const {id} = useParams();
 
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemon, setPokemon] = useState({type: []});
 
   useEffect(() => {
     const promise = axios(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -26,65 +33,51 @@ const Pokemon = () => {
     });
     }, [])
 
-    const logoFix = {
-      marginTop: -150
-    }
+    console.log(pokemon);
 
   return(
     <Container>
-      <Segment basic padded='very' />
-
-
-      <Segment raised inverted color='grey'>
-      <Image src='https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png' size='large' centered style={logoFix} verticalAlign='top' />
-      <Image src={ pokemon.image } size='medium' centered />
-      <Header as='h1' textAlign='center'>{ pokemon.name }
-      <Header.Subheader>
-      #{ pokemon.id }
-    </Header.Subheader>
-      </Header>
       
-      <Grid doubling columns={4}>
-
-        <Grid.Column>
-          
-          <Statistic color='green'>
-            <Statistic.Value>{pokemon.hp}</Statistic.Value>
-            <Statistic.Label>HP</Statistic.Label>
-          </Statistic>
-
+      <Grid>
+        <Grid.Column floated='left' width={8} only='computer'>
+        <Image src='https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png' size='medium'/>
         </Grid.Column>
-
-        <Grid.Column>
-
-        <Statistic color='red'>
-            <Statistic.Value>{pokemon.attack}</Statistic.Value>
-            <Statistic.Label>Attack</Statistic.Label>
-        </Statistic>
-
+        
+        <Grid.Column floated='right' width={8} only='computer'>
+          <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
         </Grid.Column>
-
-        <Grid.Column>
-
-        <Statistic color='blue'>
-            <Statistic.Value>{pokemon.defense}</Statistic.Value>
-            <Statistic.Label>Defense</Statistic.Label>
-        </Statistic>
-
-        </Grid.Column>
-
-        <Grid.Column>
-
-        <Statistic color='teal'>
-            <Statistic.Value>{pokemon.speed}</Statistic.Value>
-            <Statistic.Label>Speed</Statistic.Label>
-        </Statistic>
-
-        </Grid.Column>
-
+      
       </Grid>
-    
-      </Segment>
+      
+      <Grid>
+
+        <Grid.Column floated='left' width={8} only='mobile'>
+        <Image src='https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png' size='medium'/>
+        </Grid.Column>
+
+
+        <Grid.Column floated='right' width={8} only='mobile'>
+          Mobile
+        </Grid.Column>
+
+        <Grid.Column width={16} only='mobile'><Segment basic padded /><Segment basic padded /></Grid.Column>
+      </Grid>
+
+      <Grid doubling columns={1} centered divided>
+        <Grid.Column width={16}>
+          <Segment stacked>
+            <Image src={ pokemon.image } size='medium' centered className='imagefix' />
+            <Header as='h1' textAlign='center' className='cap'>{ pokemon.name }
+            <Header.Subheader>
+              <Label>#{ pokemon.id }</Label>
+              { pokemon.type.map(r => <Label key={r.slot} className='cap'>{r.type.name}</Label>)}
+              </Header.Subheader>
+            </Header>
+          </Segment>
+        </Grid.Column>
+      </Grid>
+      
+      
     </Container>
   )
 }
