@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./PokedexItem.css";
+import {useProtectedRoute} from "../../provider/AuthProvider.js";
+import ValidateColor from "../ValidateColor.js";
 
 const PokedexItem = ({ url }) => {
 
   const [pokemon, setPokemon] = useState({type: []});
-  const [color, setColor] = useState("");
-
+  const [type, setType] = useState('');
   useEffect(() => {
     const promise = axios(url);
     promise.then(res => {
@@ -21,82 +22,19 @@ const PokedexItem = ({ url }) => {
         defense: res.data.stats[2].base_stat,
         speed: res.data.stats[5].base_stat
       })
-      handleColor(res.data.types[0].type.name);
+      setType(res.data.types[0].type.name)
     });
   }, [url]);
 
-  const handleColor = (type) => {
-    switch(type){
-      case "normal":
-        setColor("#735159"); 
-        break;
-      case "fighting":
-        setColor("#973f26");
-        break;
-      case "flying":
-        setColor("#48677b");
-        break;
-      case "poison":
-        setColor("#5b2d86");
-        break;
-      case "gound":
-        setColor("#a37324");
-        break;
-      case "rock":
-        setColor("#46180b");
-        break;
-      case "bug":
-        setColor("#8bc34a");
-        break;
-      case "ghost":
-        setColor("#31336a");
-        break;
-      case "steel":
-        setColor("#5d736c");
-        break;
-      case "fire":
-        setColor("#fb6c6c");
-        break;
-      case "water":
-        setColor("#70b7fa");
-        break;
-      case "grass":
-        setColor("#48d0b0");
-        break;
-      case "electric":
-        setColor("#e2e02d");
-        break;
-      case "phychic":
-        setColor("#a12b6a");
-        break;
-      case "ice":
-        setColor("#86d2f4");
-        break;
-      case "dragon":
-        setColor("#448a94");
-        break;
-      case "dark":
-        setColor("#030706");
-        break;
-      case "fairy":
-        setColor("#981844");
-        break;
-      case "shadow":
-        setColor("#000000");
-        break;
-      default:
-        setColor("#ffeb3b")
-        break;
-    }
-  }
+
+  const {setAllowed} = useProtectedRoute();
 
   return(
-    <div className="col-lg-3 col-sm-2">
-      <Link to={`/pokedex/pokemon/${pokemon.id}`} style={{background: color}} className="card">
       <Link 
       to={`/pokedex/pokemon/${pokemon.id}`}
-      style={{background: color}} 
-      className="card">
+      style={{background: ValidateColor(type)}}
+      className="card"
+      onClick={() => setAllowed(true)}>
         <div className="text">
           <h3>
             {pokemon.name}
