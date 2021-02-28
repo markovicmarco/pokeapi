@@ -43,4 +43,4 @@ export const ProvideProtected = ({children}) => {
 }
 
 export const useDarkMode = () => useContext(darkMode);
-export const useProtectedRoute = () => useContext(Protected);
+export const useProtectedRoute = () => useContext(protectedRoute);

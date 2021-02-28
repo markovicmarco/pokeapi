@@ -1,4 +1,4 @@
-import { ProvideProtected, ProvideDark } from "./provider/AuthProvider.js";
+import { ProvideProtected, ProvideDark, ProvideColor } from "./provider/AuthProvider.js";
 import "./styles.css";
 import {
   HashRouter as Router,
@@ -8,6 +8,7 @@ import {
 import Pokedex from './components/pokedexList/Pokedex.js'
 import Pokemon from "./components/pokemonDetails/Pokemon";
 import Encounters from "./components/Location/Encounters.js";
+import ProtectedRoute from './components/ProtectedRoute.js';
 
 export default function App() {
   return (
@@ -17,7 +18,9 @@ export default function App() {
           <Router>
             <Switch>
               <Route path="/pokedex/pokemon/:id/encounters" component={Encounters}/>
-              <Route path="/pokedex/pokemon/:id" component={Pokemon}/>
+              <ProtectedRoute path="/pokedex/pokemon/:id">
+                <Pokemon/>
+              </ProtectedRoute>
               <Route path="/pokedex" component={Pokedex}/>
               <Route path="/">Hola</Route>
             </Switch>
