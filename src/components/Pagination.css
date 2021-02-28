@@ -1,0 +1,28 @@
+.pagination{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.pagination button{
+  border: 0;
+  background: #6c79db;
+  color: white;
+  box-shadow: 2px 2px 8px gray;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 3px;
+  cursor: pointer;
+  outline: 0;
+  transition: .2s;
+}
+
+.pagination button:hover{
+  background: #67c98e;
+  transition: .2s;
+}
+button.selected{
+  background: #67c98e;
+}
