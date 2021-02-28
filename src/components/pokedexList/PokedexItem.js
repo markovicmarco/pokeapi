@@ -22,7 +22,6 @@ const PokedexItem = ({ url }) => {
         speed: res.data.stats[5].base_stat
       })
       handleColor(res.data.types[0].type.name);
-      console.log(res.data);
     });
   }, [url]);
 
@@ -94,6 +93,10 @@ const PokedexItem = ({ url }) => {
   return(
     <div className="col-lg-3 col-sm-2">
       <Link to={`/pokedex/pokemon/${pokemon.id}`} style={{background: color}} className="card">
+      <Link 
+      to={`/pokedex/pokemon/${pokemon.id}`}
+      style={{background: color}} 
+      className="card">
         <div className="text">
           <h3>
             {pokemon.name}
@@ -113,9 +116,10 @@ const PokedexItem = ({ url }) => {
         </div>
         <div className="img">
           <img src={pokemon.image} alt="" width="100%"/>
+          
+          <div className="pokeball"></div>
         </div>
       </Link>
-    </div>
   )
 }
 
