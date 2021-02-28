@@ -91,7 +91,6 @@ const PokedexItem = ({ url }) => {
   }
 
   return(
-    <div className="col-lg-3 col-sm-2">
       <Link 
       to={`/pokedex/pokemon/${pokemon.id}`}
       style={{background: color}} 
@@ -119,7 +118,6 @@ const PokedexItem = ({ url }) => {
           <div className="pokeball"></div>
         </div>
       </Link>
-    </div>
   )
 }
 
