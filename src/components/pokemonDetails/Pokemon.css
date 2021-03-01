@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+body{
+  font-family: 'Lato', Verdana, Geneva, Tahoma, sans-serif;
+}
 .cap:first-letter {
   text-transform: uppercase;
 }

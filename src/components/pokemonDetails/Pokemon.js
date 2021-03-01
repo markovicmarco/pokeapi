@@ -8,7 +8,7 @@ import {useDarkMode} from "../../provider/AuthProvider.js";
 import { Container, Grid, Header, Segment, Image, Label } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-import Pokemoncss from './Pokemon.css'
+import './Pokemon.css';
 
 const Pokemon = () => {
 
