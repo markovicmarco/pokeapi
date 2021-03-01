@@ -8,6 +8,8 @@ import Pagination from "../Pagination.js";
 
 const Pokedex = () => {
 
+  document.body.style="background: white;"
+
   // Pokemon List
   const [pokemons, setPokemons] = useState([]);
 
@@ -153,7 +155,6 @@ const Pokedex = () => {
         totalItems={totalItems} 
         changePage={handlePage}/>
       </div>
-      <div className="pokeball-background"></div>
     </div>
   )
 }
