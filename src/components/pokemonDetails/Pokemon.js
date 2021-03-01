@@ -1,21 +1,23 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ValidateColor from '../ValidateColor';
 import axios from 'axios';
+import {useDarkMode} from "../../provider/AuthProvider.js";
+
 
 import { Container, Grid, Header, Segment, Image, Label } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 import Pokemoncss from './Pokemon.css'
 
-// https://unpkg.com/grade-js/docs/dist/grade.js
-
-
-
 const Pokemon = () => {
 
   const {id} = useParams();
-
+  const [type, setType] = useState('');
   const [pokemon, setPokemon] = useState({type: []});
+  
+  // const {isDark, darkOn} = useDarkMode();
+  // const backgroundColor = isDark ? 'black' : 'red';
 
   useEffect(() => {
     const promise = axios(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -30,10 +32,12 @@ const Pokemon = () => {
         defense: res.data.stats[2].base_stat,
         speed: res.data.stats[5].base_stat
       })
+      setType(res.data.types[0].type.name);
     });
     }, [])
 
-    console.log(pokemon);
+    document.body.style = `background: ${ValidateColor(type)};`;
+
 
   return(
     <Container>
@@ -66,6 +70,7 @@ const Pokemon = () => {
       <Grid doubling columns={1} centered divided>
         <Grid.Column width={16}>
           <Segment stacked>
+          {/* <Checkbox toggle onClick={ darkOn } /> */}
             <Image src={ pokemon.image } size='medium' centered className='imagefix' />
             <Header as='h1' textAlign='center' className='cap'>{ pokemon.name }
             <Header.Subheader>
