@@ -6,15 +6,11 @@ const protectedRoute = createContext();
 const useProvideDark = () => {
   const [isDark, setIsDark] = useState(false);
 
-  const darkOn = () => {
-    setIsDark(true);
+  const changeDark = () => {
+    setIsDark(!isDark);
   }
 
-  const darkOff = () => {
-    setIsDark(false);
-  }
-
-  return {isDark, darkOn, darkOff}
+  return {isDark, changeDark}
 }
 
 const useProvideProtected = () => {

@@ -10,6 +10,7 @@ import Pokemon from "./components/pokemonDetails/Pokemon";
 import Encounters from "./components/Location/Encounters.js";
 import ProtectedRoute from './components/ProtectedRoute.js';
 import "./components/pokedexList/Pokedex.css";
+import Settings from "./components/settings/Settings.js";
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
               </ProtectedRoute> */}
               <Route path="/pokedex/pokemon/:id" component={Pokemon}/>
               <Route path="/pokedex" component={Pokedex}/>
+              <Route path="/settings" component={Settings}/>
               <Route path="/">Hola</Route>
             </Switch>
           </Router>
