@@ -8,7 +8,7 @@ import {ProgressBar} from './ProgressBar'
 // import {useDarkMode} from "../../provider/AuthProvider.js";
 
 
-import { Container, Grid, Segment, Image, Label, Progress, Divider, Header } from 'semantic-ui-react';
+import { Container, Grid, Segment, Image, Label, Divider, Header } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 import './Pokemon.css';
@@ -53,7 +53,8 @@ const Pokemon = () => {
         </Grid.Column>
         
         <Grid.Column floated='right' width={8} only='computer'>
-          {/* <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' /> */}
+        { pokemon.type.map(r => <Image key={r.slot} spaced='right' src={`https://raw.githubusercontent.com/mauroWernly/Pokedex/master/images/types/${upperCase(r.type.name)}.png`} />)}
+        { pokemon.type.map(r => <Label className='cap' key={r.slot} style={{backgroundColor:ValidateColor(r.type.name), color: 'white'}}>{r.type.name}</Label>)}
         </Grid.Column>
       
       </Grid>
@@ -84,15 +85,7 @@ const Pokemon = () => {
               </Header>
 
               <Header.Subheader>
-              { pokemon.type.map(r => <Image key={r.slot} spaced='right' src={`https://raw.githubusercontent.com/mauroWernly/Pokedex/master/images/types/${upperCase(r.type.name)}.png`} />)}
-              </Header.Subheader>
-
-
-
-              <Header.Subheader>
-              { pokemon.type.map(r => <Label pointing className='cap' key={r.slot} style={{backgroundColor:ValidateColor(r.type.name), color: 'white'}}>
-              {/* <Image spaced='right' src={`https://raw.githubusercontent.com/mauroWernly/Pokedex/master/images/types/${upperCase(r.type.name)}.png`} /> */}
-              {r.type.name}</Label>)}
+              <Label>#{ pokemon.id }</Label>
               </Header.Subheader>
             </Divider>
 
@@ -101,7 +94,7 @@ const Pokemon = () => {
 
             <Divider horizontal>
               <Header as='h3' textAlign='left' className='cap'>
-              asdf
+              Estadisticas
               </Header>
               </Divider>
             <Grid doubling columns={4}>
