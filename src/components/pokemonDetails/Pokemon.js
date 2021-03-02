@@ -2,10 +2,13 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ValidateColor from '../ValidateColor';
 import axios from 'axios';
-import {useDarkMode} from "../../provider/AuthProvider.js";
+import {ProgressBar} from './ProgressBar'
 
 
-import { Container, Grid, Header, Segment, Image, Label } from 'semantic-ui-react';
+// import {useDarkMode} from "../../provider/AuthProvider.js";
+
+
+import { Container, Grid, Segment, Image, Label, Progress, Divider, Header } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 import './Pokemon.css';
@@ -15,7 +18,9 @@ const Pokemon = () => {
   const {id} = useParams();
   const [type, setType] = useState('');
   const [pokemon, setPokemon] = useState({type: []});
-  
+
+  const upperCase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
   // const {isDark, darkOn} = useDarkMode();
   // const backgroundColor = isDark ? 'black' : 'red';
 
@@ -48,7 +53,7 @@ const Pokemon = () => {
         </Grid.Column>
         
         <Grid.Column floated='right' width={8} only='computer'>
-          <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+          {/* <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' /> */}
         </Grid.Column>
       
       </Grid>
@@ -70,14 +75,44 @@ const Pokemon = () => {
       <Grid doubling columns={1} centered divided>
         <Grid.Column width={16}>
           <Segment stacked>
-          {/* <Checkbox toggle onClick={ darkOn } /> */}
+
             <Image src={ pokemon.image } size='medium' centered className='imagefix' />
-            <Header as='h1' textAlign='center' className='cap'>{ pokemon.name }
-            <Header.Subheader>
-              <Label>#{ pokemon.id }</Label>
-              { pokemon.type.map(r => <Label key={r.slot} className='cap'>{r.type.name}</Label>)}
+            
+            <Divider horizontal>
+              <Header as='h1' className='cap'>
+              { pokemon.name }
+              </Header>
+
+              <Header.Subheader>
+              { pokemon.type.map(r => <Image key={r.slot} spaced='right' src={`https://raw.githubusercontent.com/mauroWernly/Pokedex/master/images/types/${upperCase(r.type.name)}.png`} />)}
               </Header.Subheader>
-            </Header>
+
+
+
+              <Header.Subheader>
+              { pokemon.type.map(r => <Label pointing className='cap' key={r.slot} style={{backgroundColor:ValidateColor(r.type.name), color: 'white'}}>
+              {/* <Image spaced='right' src={`https://raw.githubusercontent.com/mauroWernly/Pokedex/master/images/types/${upperCase(r.type.name)}.png`} /> */}
+              {r.type.name}</Label>)}
+              </Header.Subheader>
+            </Divider>
+
+
+
+
+            <Divider horizontal>
+              <Header as='h3' textAlign='left' className='cap'>
+              asdf
+              </Header>
+              </Divider>
+            <Grid doubling columns={4}>
+              <Grid.Column><ProgressBar value={ pokemon.hp } label='HP'/></Grid.Column>
+              <Grid.Column><ProgressBar value={ pokemon.speed } label='Speed'/></Grid.Column>
+              <Grid.Column><ProgressBar value={ pokemon.attack } label='Attack'/></Grid.Column>
+              <Grid.Column><ProgressBar value={ pokemon.defense } label='Defense'/></Grid.Column>
+            </Grid>
+
+
+
           </Segment>
         </Grid.Column>
       </Grid>

@@ -6,7 +6,6 @@ body{
 .cap:first-letter {
   text-transform: uppercase;
 }
-
 .imagefix{
   margin-top: -175px;
 }
