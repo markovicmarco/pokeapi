@@ -43,7 +43,48 @@
   align-items: center;
 }
 
+.settings:hover i{
+  -webkit-transform: rotate(360deg) translateZ(0);
+}
+
 .settings i{
   color: white;
   font-size: 1.5rem;
+  -webkit-transition: -webkit-transform 1s;
+}
+
+@media(min-width: 576px){
+  .container{max-width: 579px;}
+
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col-sm-2{
+    width: 50%;
+  }
+}
+@media(min-width: 768px){
+  .pokeball-background{
+    right: -90px;
+    top: -50px;
+    height: 400px;
+    width: 400px;
+  }
+}
+@media(min-width: 992px){
+  .pokeball-background{
+    right: -100px;
+    top: -60px;
+    height: 500px;
+    width: 500px;
+  }
+
+  .settings{
+    height: 55px;
+    width: 55px;
+  }
+  .settings i{
+    font-size: 2rem;
+  }
 }
