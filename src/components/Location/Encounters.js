@@ -24,6 +24,7 @@ const Encounters = () => {
     <ul className="container">
       {encounters.map((encounter) => {
         return(
+  
           <EncounterItem 
           key={encounter.location_area.url.split('https://pokeapi.co/api/v2/location-area/')[1]} 
           encounter={encounter.location_area.name} />

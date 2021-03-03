@@ -125,7 +125,8 @@
 @media(min-width: 768px){
   .container{max-width: 768px;}
 
-  .pokeball-background{
+
+    .pokeball-background{
     right: -90px;
     top: -50px;
     height: 400px;
