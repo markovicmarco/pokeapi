@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap');
 
-body{
-  font-family: 'Lato', Verdana, Geneva, Tahoma, sans-serif;
-}
 .cap:first-letter {
+  font-family: 'Lato', sans-serif;
   text-transform: uppercase;
 }
-
 .imagefix{
   margin-top: -175px;
   border: solid;

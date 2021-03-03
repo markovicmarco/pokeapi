@@ -2,3 +2,139 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.pokeball-background{
+  background-image: url('https://raw.githubusercontent.com/andreidem18/pokeapi/main/src/images/pokeball.png');
+  position: fixed;
+  filter: brightness(200%);
+  z-index: -1;
+  right: -90px;
+  top: -40px;
+  background-size: cover;
+  height: 300px;
+  width: 300px;
+  -webkit-animation-direction: reverse;
+  animation-direction: reverse;
+}
+@keyframes rotate {from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}}
+@-webkit-keyframes rotate {from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}}
+.pokeball-background{
+    -webkit-animation: 3s rotate linear infinite;
+    animation: 3s rotate linear infinite;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+
+.settings{
+  background: #6c79db;
+  height: 40px;
+  width: 40px;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  box-shadow: 2px 2px 8px rgba(0,0,0,.6);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings:hover i{
+  -webkit-transform: rotate(360deg) translateZ(0);
+}
+
+.settings i{
+  color: white;
+  font-size: 1.5rem;
+  -webkit-transition: -webkit-transform 1s;
+}
+
+@media(min-width: 576px){
+  .container{max-width: 579px;}
+
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col-sm-2{
+    width: 50%;
+  }
+}
+@media(min-width: 768px){
+  .pokeball-background{
+    right: -90px;
+    top: -50px;
+    height: 400px;
+    width: 400px;
+  }
+}
+@media(min-width: 992px){
+  .pokeball-background{
+    right: -100px;
+    top: -60px;
+    height: 500px;
+    width: 500px;
+  }
+
+  .settings{
+    height: 55px;
+    width: 55px;
+  }
+  .settings i{
+    font-size: 2rem;
+  }
+}
+
+
+
+/* Generic classes */
+
+
+.container{
+  padding: 15px;
+  margin: 0 auto;
+}
+
+[class*= col-]{
+  padding: 15px;
+}
+
+@media(min-width: 576px){
+  .container{max-width: 579px;}
+
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col-sm-2{
+    width: 50%;
+  }
+}
+@media(min-width: 768px){
+  .container{max-width: 768px;}
+
+  .pokeball-background{
+    right: -90px;
+    top: -50px;
+    height: 400px;
+    width: 400px;
+  }
+}
+@media(min-width: 992px){
+  .container{max-width: 992px;}
+
+  .col-lg-3{
+    width: 25%;
+  }
+
+  .pokeball-background{
+    right: -100px;
+    top: -60px;
+    height: 500px;
+    width: 500px;
+  }
+}

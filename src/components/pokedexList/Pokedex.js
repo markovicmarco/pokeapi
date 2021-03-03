@@ -8,7 +8,10 @@ import Pagination from "../Pagination.js";
 
 const Pokedex = () => {
 
-  document.body.style="background: white;"
+  const {isDark} = useDarkMode();
+
+  
+  document.body.style = `background: ${isDark? 'rgb(29, 27, 27)' : 'rgb(253, 253, 253)'}`;
 
   // Pokemon List
   const [pokemons, setPokemons] = useState([]);

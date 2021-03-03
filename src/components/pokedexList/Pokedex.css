@@ -1,30 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
 
-
-.pokeball-background{
-  background-image: url('https://raw.githubusercontent.com/andreidem18/pokeapi/main/src/images/pokeball.png');
-  position: fixed;
-  filter: brightness(200%);
-  z-index: -1;
-  right: -90px;
-  top: -40px;
-  background-size: cover;
-  height: 300px;
-  width: 300px;
-  -webkit-animation-direction: reverse;
-  animation-direction: reverse;
-}
-@keyframes rotate {from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}}
-@-webkit-keyframes rotate {from {-webkit-transform: rotate(0deg);}
-  to {-webkit-transform: rotate(360deg);}}
-.pokeball-background{
-    -webkit-animation: 3s rotate linear infinite;
-    animation: 3s rotate linear infinite;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-}
 
 .center{
   display: flex;
@@ -40,7 +16,7 @@
   font-family: 'RocknRoll One', sans-serif;
 }
 
-input[type="checkbox"]{
+.check-container input[type="checkbox"]{
   position: relative;
   -webkit-appearance: none;
   width: 75px;
@@ -52,10 +28,10 @@ input[type="checkbox"]{
   transition: .5s;
   cursor: pointer;
 }
-input:checked[type="checkbox"]{
+.check-container input:checked[type="checkbox"]{
   background: #03a9f4;
 }
-input[type="checkbox"]:before{
+.check-container input[type="checkbox"]:before{
   content: '';
   position: absolute;
   width: 30px;
@@ -68,7 +44,7 @@ input[type="checkbox"]:before{
   transform: scale(1.1);
   transition: .5s;
 }
-input:checked[type="checkbox"]:before{
+.check-container input:checked[type="checkbox"]:before{
   left: 45px;
 }
 
@@ -133,6 +109,7 @@ input:checked[type="checkbox"]:before{
 }
 #check:checked+.box > input{
   opacity: 1;
+  background: white;
 }
 #check:checked+.box > label{
   box-shadow: none;
@@ -163,54 +140,9 @@ select{
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 2.9rem;
-  margin: 50px 0;
+  padding: 50px 0;
   margin-left: 30px;
   text-align: left;
 }
 
 /* Generic classes */
-
-.container{
-    padding: 15px;
-    margin: 0 auto;
-  }
-  
-  [class*= col-]{
-    padding: 15px;
-  }
-
-  @media(min-width: 576px){
-    .container{max-width: 579px;}
-  
-    .row{
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .col-sm-2{
-      width: 50%;
-    }
-  }
-  @media(min-width: 768px){
-    .container{max-width: 768px;}
-
-    .pokeball-background{
-      right: -90px;
-      top: -50px;
-      height: 400px;
-      width: 400px;
-    }
-  }
-  @media(min-width: 992px){
-    .container{max-width: 992px;}
-
-    .col-lg-3{
-      width: 25%;
-    }
-
-    .pokeball-background{
-      right: -100px;
-      top: -60px;
-      height: 500px;
-      width: 500px;
-    }
-  }
