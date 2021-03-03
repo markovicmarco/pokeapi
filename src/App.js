@@ -1,4 +1,4 @@
-import { ProvideProtected, ProvideDark, ProvideColor } from "./provider/AuthProvider.js";
+import { ProvideProtected, ProvideDark } from "./provider/AuthProvider.js";
 import "./styles.css";
 import {
   HashRouter as Router,

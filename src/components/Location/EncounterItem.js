@@ -8,7 +8,6 @@ const EncounterItem = ({ encounter }) => {
     const numberColor = Math.floor(Math.random()*18) + 1;
 
     const data = encounter.split("-");
-    console.log(data)
     
     const region = data.length === 5 ? `${data[0]} ${data[1]}` : data[0];
 
@@ -18,21 +17,23 @@ const EncounterItem = ({ encounter }) => {
     
 
     return(
-    <>
+    <div className="col-lg-3 col-sm-2">
         <div 
-            className="item" 
-            style={{
-                background: ValidateColor(numberColor)
-            }}
-            >
+        className="card encounter" 
+        style={{background: ValidateColor(numberColor)}}>
             <div>
-                Region: {region}<br/>
-                Area: {area}
+                <div className="margin-b">
+                    <span className="title-encounter">Region:</span>
+                    <span className="cloud">{region}</span>
+                </div>
+                <div>
+                    <span className="title-encounter">Area:</span>
+                    <span className="cloud">{area}</span>
+                </div>
             </div>
             <div className="pokeball"></div>
         </div>
-        
-    </>
+    </div>
 )
 }
 
