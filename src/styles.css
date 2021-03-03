@@ -99,6 +99,14 @@
   margin: 0 auto;
 }
 
+.text-left{
+  text-align: left;
+}
+
+.p-absolute{
+  position: absolute;
+}
+
 [class*= col-]{
   padding: 15px;
 }

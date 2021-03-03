@@ -70,13 +70,17 @@
   font-size: 23px;
   cursor: pointer;
   transition: .5s;
-  box-shadow: -5px -5px 8px #edeff1,
-  5px 5px 10px #cacfd8;
+  box-shadow: -5px -5px 8px #3a3a3a17,
+  5px 5px 10px #42424259;
+}
+
+.box.dark label{
+  background: rgb(15, 15, 15);
 }
 
 .box label:hover{
-  box-shadow: -10px -10px 15px #edeff1,
-  10px 10px 15px #cacfd8;
+  box-shadow: -10px -10px 15px #3a3a3a17,
+  10px 10px 15px #42424259;
   transform: scale(1.1);
 }
 .box input{
@@ -89,15 +93,15 @@
   font-size: 19px;
   padding-left: 20px;
   color: gray;
-  box-shadow: -10px -10px 15px #edeff1,
-  10px 10px 15px #cacfd8;
+  box-shadow: -10px -10px 15px #3a3a3a17,
+  10px 10px 15px #42424259;
   transition: .5s;
   opacity: 0;
 }
 
 .box input:focus{
-  box-shadow: -10px -10px 40px #edeff1,
-  10px 10px 40px #cacfd8;
+  box-shadow: -10px -10px 40px #3a3a3a17,
+  10px 10px 40px #42424259;
 }
 
 #check{
@@ -110,6 +114,10 @@
 #check:checked+.box > input{
   opacity: 1;
   background: white;
+}
+#check:checked+.box.dark > input{
+  opacity: 1;
+  background: rgb(15, 15, 15);
 }
 #check:checked+.box > label{
   box-shadow: none;
@@ -129,10 +137,13 @@ select{
   font-size: 19px;
   padding-left: 20px;
   color: gray;
-  box-shadow: -10px -10px 15px #edeff1,
-  10px 10px 15px #cacfd8;
+  box-shadow: -10px -10px 15px #3a3a3a17,
+  10px 10px 15px #42424259;
   transition: .5s;
   margin: 30px 0;
+}
+select.dark{
+  background: rgb(15, 15, 15);
 }
 
 
@@ -144,5 +155,3 @@ select{
   margin-left: 30px;
   text-align: left;
 }
-
-/* Generic classes */

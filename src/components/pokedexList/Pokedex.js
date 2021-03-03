@@ -95,7 +95,9 @@ const Pokedex = () => {
 
   return(
     <div>
-      <div className="container">
+      <div 
+      className="container"
+      style={{color: isDark ? 'white' : 'black'}}>
         <h2 className="title">Pokedex</h2>
         <div>
           <div className="center check-container">
@@ -111,7 +113,7 @@ const Pokedex = () => {
               type="checkbox"
               id="check"
               />  
-              <div className="box">
+              <div className={isDark ? "box dark" : "box"}>
                 <input 
                 type="text"
                 placeholder="Search Here..."
@@ -123,7 +125,9 @@ const Pokedex = () => {
               </div>
             </div>
           :
-            <select onClick={handleType}>
+            <select 
+            onClick={handleType}
+            className={isDark ? 'dark' : ''}>
               <option value="">All pokemons</option>
               {typeList.map((value) => 
                 <option key={value.name} value={value.name}>

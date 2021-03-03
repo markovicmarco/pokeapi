@@ -4,10 +4,10 @@
   padding: 20px;
 }
 
-.check-container input[type=checkbox]{
+.check-container.first input[type=checkbox]{
   background: greenyellow
 }
-.check-container input:checked[type="checkbox"]{
+.check-container.first input:checked[type="checkbox"]{
   background: #6c79db;
 }
 h3.title{
@@ -15,3 +15,14 @@ h3.title{
   font-size: 1.9rem;
   font-weight: 500;
 }
+
+.back-button{
+  text-align: left;
+}
+
+.back-button i{
+  font-size: 2rem;
+}
+
+
+
