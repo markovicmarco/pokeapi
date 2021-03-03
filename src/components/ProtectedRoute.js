@@ -4,13 +4,13 @@ import {useProtectedRoute} from '../provider/AuthProvider.js';
 const ProtectedRoute = ({ children, ...props}) => {
 
   const {isAllowed} = useProtectedRoute();
-   return(
+    return(
     <Route {...props} render={() => (isAllowed ? 
       children
     :
       <Redirect to="/pokedex"/>)}
     /> 
-   )
+)
 }
 
 export default ProtectedRoute;
