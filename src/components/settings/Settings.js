@@ -1,5 +1,15 @@
+import {isDark, changeDark} from '../../provider/AuthProvider';
+
 const Settings = () => {
-  return <div>Settings</div>
+
+  document.body.style = `background: ${isDark? 'black' : 'white'}`;
+
+  
+  return(
+    <div>Settings
+      <input type="checkbox"/>
+    </div>
+  )
 }
 
 export default Settings;
