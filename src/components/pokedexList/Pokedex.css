@@ -1,31 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
 
-
-.pokeball-background{
-  background-image: url('https://raw.githubusercontent.com/andreidem18/pokeapi/main/src/images/pokeball.png');
-  position: fixed;
-  filter: brightness(200%);
-  z-index: -1;
-  right: -90px;
-  top: -40px;
-  background-size: cover;
-  height: 300px;
-  width: 300px;
-  -webkit-animation-direction: reverse;
-  animation-direction: reverse;
-}
-@keyframes rotate {from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}}
-@-webkit-keyframes rotate {from {-webkit-transform: rotate(0deg);}
-  to {-webkit-transform: rotate(360deg);}}
-.pokeball-background{
-    -webkit-animation: 3s rotate linear infinite;
-    animation: 3s rotate linear infinite;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-}
-
 .center{
   display: flex;
   align-items: center;
@@ -133,6 +108,7 @@ input:checked[type="checkbox"]:before{
 }
 #check:checked+.box > input{
   opacity: 1;
+  background: white;
 }
 #check:checked+.box > label{
   box-shadow: none;
