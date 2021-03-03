@@ -1,0 +1,17 @@
+.card-setting{
+  box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.check-container input[type=checkbox]{
+  background: greenyellow
+}
+.check-container input:checked[type="checkbox"]{
+  background: #6c79db;
+}
+h3.title{
+  padding: 0;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
