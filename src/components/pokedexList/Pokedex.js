@@ -1,5 +1,5 @@
 import PokedexItem from "./PokedexItem.js";
-import {useDarkMode} from "../../provider/AuthProvider.js";
+import {useDarkMode, useNumItems} from "../../provider/AuthProvider.js";
 import {useState,useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
@@ -22,7 +22,7 @@ const Pokedex = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [offset, setOffest] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
-  let itemsPerPage = 16;
+  const {itemsPerPage} = useNumItems();
 
 
   const handlePage = (page) => {

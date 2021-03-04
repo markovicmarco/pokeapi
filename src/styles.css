@@ -67,6 +67,9 @@
 .text-left{
   text-align: left;
 }
+.text-center{
+  text-align: center;
+}
 
 .p-absolute{
   position: absolute;

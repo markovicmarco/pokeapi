@@ -1,4 +1,4 @@
-import { ProvideProtected, ProvideDark } from "./provider/AuthProvider.js";
+import { ProvideProtected, ProvideDark, ProvideNumItems } from "./provider/AuthProvider.js";
 import "./styles.css";
 import {
   HashRouter as Router,
@@ -17,24 +17,26 @@ export default function App() {
   return (
     <ProvideDark>
       <ProvideProtected>
-        <div className="App">
-          <Router>
-            <div className="pokeball-background"></div>
-            <Link to="/settings" className="settings">
-              <i className="fas fa-cog"></i>
-            </Link>
-            <Switch>
-              <Route path="/pokedex/pokemon/:id/encounters" component={Encounters}/>
-              {/* <ProtectedRoute path="/pokedex/pokemon/:id">
-                <Pokemon/>
-              </ProtectedRoute> */}
-              <Route path="/pokedex/pokemon/:id" component={Pokemon}/>
-              <Route path="/pokedex" component={Pokedex}/>
-              <Route path="/settings" component={Settings}/>
-              <Route path="/" render={() => <Redirect to="/pokedex"/>}/>
-            </Switch>
-          </Router>
-        </div>
+        <ProvideNumItems>
+          <div className="App">
+            <Router>
+              <div className="pokeball-background"></div>
+              <Link to="/settings" className="settings">
+                <i className="fas fa-cog"></i>
+              </Link>
+              <Switch>
+                <Route path="/pokedex/pokemon/:id/encounters" component={Encounters}/>
+                {/* <ProtectedRoute path="/pokedex/pokemon/:id">
+                  <Pokemon/>
+                </ProtectedRoute> */}
+                <Route path="/pokedex/pokemon/:id" component={Pokemon}/>
+                <Route path="/pokedex" component={Pokedex}/>
+                <Route path="/settings" component={Settings}/>
+                <Route path="/" render={() => <Redirect to="/pokedex"/>}/>
+              </Switch>
+            </Router>
+          </div>
+        </ProvideNumItems>
       </ProvideProtected>
     </ProvideDark>
   );
