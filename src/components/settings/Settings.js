@@ -51,11 +51,11 @@ const Settings = () => {
           style={{background: isDark ? 'black' : '#fff'}}
           value={itemsPerPage}
           onChange={(e) => setItemsPerPage(e.target.value)}>
-            <option value="4">4</option>
-            <option value="8">8</option>
-            <option value="12">12</option>
-            <option value="16">16</option>
-            <option value="20">20</option>
+            <option value="4">4 items</option>
+            <option value="8">8 items</option>
+            <option value="12">12 items</option>
+            <option value="16">16 items</option>
+            <option value="20">20 items</option>
           </select>
         </div>
       </div>
