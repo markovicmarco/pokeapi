@@ -17,9 +17,8 @@ const Settings = () => {
 
       <div className="text-left p-absolute">
         <button 
-        // onClick={() => history.goBack()}
-        onClick={() => history.push('/pokedex')}
-        class="back-button"
+        onClick={() => history.goBack()}
+        className="back-button"
         style={{color: isDark? "white" : "black"}}>
           <i className="fas fa-arrow-left"></i>
         </button>
