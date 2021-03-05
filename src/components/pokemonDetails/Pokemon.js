@@ -1,15 +1,12 @@
-import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import ValidateColor from '../ValidateColor';
+import { Link , useParams } from 'react-router-dom';
 import axios from 'axios';
-import {ProgressBar} from './ProgressBar'
 
-
-// import {useDarkMode} from "../../provider/AuthProvider.js";
-
-
-import { Container, Grid, Segment, Image, Label, Divider, Header } from 'semantic-ui-react';
+import { Container, Grid, Segment, Image, Label, Divider, Header, Icon } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+
+import {ProgressBar} from './ProgressBar'
+import ValidateColor from '../ValidateColor';
 
 import './Pokemon.css';
 
@@ -20,9 +17,6 @@ const Pokemon = () => {
   const [pokemon, setPokemon] = useState({type: [], habilities: [], moves: []});
   const upperCase = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
-  // const {isDark, darkOn} = useDarkMode();
-  // const backgroundColor = isDark ? 'black' : 'red';
-
   useEffect(() => {
     const promise = axios(`https://pokeapi.co/api/v2/pokemon/${id}`);
     promise.then(res => {
@@ -31,6 +25,8 @@ const Pokemon = () => {
         name: res.data.name,
         image: `https://pokeres.bastionbot.org/images/pokemon/${res.data.id}.png`,
         type: res.data.types,
+        height: res.data.height,
+        weight: res.data.weight,
         hp: res.data.stats[0].base_stat,
         attack: res.data.stats[1].base_stat,
         defense: res.data.stats[2].base_stat,
@@ -48,9 +44,23 @@ console.log(pokemon)
     
   return(
     <Container>
-      
+
+
+  <Segment basic textAlign='left'>
+    
+  </Segment>
+
       <Grid>
+        <Grid.Column floated='left' width={8} textAlign='left'>
+          <Link to={`/pokedex`}>
+          <Icon name='arrow left' color='black' size='large' floated='left'/>
+          </Link>
+        </Grid.Column>
         
+        <Grid.Column floated='right' width={8}>
+        <Link to={`/pokedex/pokemon/${ id }/encounters`}>Encounters</Link>
+        </Grid.Column>
+  
         <Grid.Column floated='left' width={8} only='computer'>
         <Image src='https://logos-marcas.com/wp-content/uploads/2020/05/Pokemon-Logo.png' size='medium'/>
         </Grid.Column>
@@ -105,7 +115,8 @@ console.log(pokemon)
           
           
           <Segment>
-            {}
+          weight: { pokemon.weight }
+          height: { pokemon.height }
           </Segment>
 
 
@@ -113,6 +124,7 @@ console.log(pokemon)
 
         <Grid.Column width={5}>
           <Segment>
+          
           <Header as='h2' icon textAlign='center'>Stats Base</Header>
           <Divider />
             <ProgressBar value={ pokemon.hp } label='HP'/>
