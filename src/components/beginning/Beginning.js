@@ -1,7 +1,7 @@
 import "./Beginning.css";
 import {useDarkMode} from '../../provider/AuthProvider';
 import {useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {useHistory} from "react-router-dom";
 import {useProtectedRoute} from "../../provider/AuthProvider.js";
 
@@ -11,7 +11,6 @@ const Beginning = () => {
   document.body.style = `background: ${isDark? 'rgb(29, 27, 27)' : 'rgb(253, 253, 253)'}`;
 
   const [userName, setUserName] = useState("");
-  const name = useSelector((state) => state.name);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -48,7 +47,7 @@ const Beginning = () => {
         onChange={(e) => setUserName(e.target.value)}
         style={{background: isDark ? 'rgb(17, 17, 17)' : '#fff'}}/>
         <button onClick={handleName}>
-          <i class="fas fa-paper-plane"></i>
+          <i className="fas fa-paper-plane"></i>
         </button>
       </div>
     </div>

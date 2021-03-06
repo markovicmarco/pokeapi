@@ -7,7 +7,7 @@ const Footer = () => {
       <Container>
         <Header
           as="h2"
-          content="Create by Developers"
+          content="Created by Developers"
           subheader="Collaborators"
         />
         <Grid columns="equal" stackable>

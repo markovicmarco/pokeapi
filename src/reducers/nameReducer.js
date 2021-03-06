@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  name: "pepito"
+  name: ""
 }
 
 const reducer = (state = INITIAL_STATE, action) => {

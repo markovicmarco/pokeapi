@@ -67,7 +67,10 @@ const Pokedex = () => {
   }, []);
 
   const handleType = (e) => {
-    setType(e.target.value)
+    if(e.target.value !== type){
+      setType(e.target.value);
+      setIsLoading(true);
+    } 
   }
   const [newPokemonList, setNewPokemonList] = useState([])
   useEffect(() => {
@@ -77,6 +80,7 @@ const Pokedex = () => {
         setNewPokemonList(res.data.pokemon);
         setTotalItems(res.data.pokemon.length);
         setCurrentPage(1);
+        setIsLoading(false);
       })
     }
   }, [type]);
@@ -84,18 +88,6 @@ const Pokedex = () => {
   const indexOfLastPokemon = currentPage * itemsPerPage;
   const indexOfFirstPokemon = indexOfLastPokemon - itemsPerPage;
   const currentPokemonShowed = newPokemonList.slice(indexOfFirstPokemon, indexOfLastPokemon);
-
-
-
-  useEffect(() => {
-    if(!type){
-      const promise = axios(`https://pokeapi.co/api/v2/pokemon/?limit=${itemsPerPage}&offset=${offset}`);   
-      promise.then(res => {
-        setPokemons(res.data.results);
-        setTotalItems(res.data.count);
-      });
-    }
-  }, [itemsPerPage, offset, type]);
 
 
 
@@ -115,6 +107,20 @@ const Pokedex = () => {
 
 
 
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    if(!type){
+      const promise = axios(`https://pokeapi.co/api/v2/pokemon/?limit=${itemsPerPage}&offset=${offset}`);   
+      promise.then(res => {
+        setPokemons(res.data.results);
+        setTotalItems(res.data.count);
+        setIsLoading(false)
+      });
+    }
+  }, [itemsPerPage, offset, type]);
+
+
+
 
   return(
     <div>
@@ -125,7 +131,7 @@ const Pokedex = () => {
         <button className="log-out"
         style={{color: isDark ? 'white' : 'black'}}
         onClick={() => logOut()}>
-          <i class="fas fa-sign-out-alt"></i>
+          <i className="fas fa-sign-out-alt"></i>
         </button>
 
         <h2 className="title">Pokedex</h2>
@@ -133,7 +139,6 @@ const Pokedex = () => {
         <p className="title pokedex">
           Welcome {name}, here you can find your favorite pokemon
         </p>
-
         <div>
           <div className="center check-container">
             <span>type</span>
@@ -159,19 +164,28 @@ const Pokedex = () => {
                 <label htmlFor="check"><i className="fas fa-search"></i></label>
               </div>
             </div>
-          :
-            <select 
-            onClick={handleType}
-            className={isDark ? 'dark' : ''}>
-              <option value="">All pokemons</option>
-              {typeList.map((value) => 
-                <option key={value.name} value={value.name}>
-                  {value.name}
-                </option>
-              )}
-            </select>
+          : isLoading ? (
+              <select 
+              className={isDark ? 'dark' : ''}
+              disabled></select>
+            ) : (
+              <select 
+              onClick={handleType}
+              className={isDark ? 'dark' : ''}>
+                <option value=''>All pokemons</option>
+                {typeList.map((value) => 
+                  <option 
+                  key={value.name} 
+                  value={value.name} 
+                  selected={value.name === type ? true : false}>
+                    {value.name}
+                  </option>
+                )}
+              </select>)
           }
         </div>
+{ isLoading ? 'isLoading...' : (
+  <>
         <div className="row">
         {type ? 
           currentPokemonShowed.map((value) => {
@@ -196,7 +210,11 @@ const Pokedex = () => {
         itemsPerPage={itemsPerPage} 
         totalItems={totalItems} 
         changePage={handlePage}/>
-      </div>
+      </>
+        
+)}
+
+        </div>
 
       <Footer/>
               
