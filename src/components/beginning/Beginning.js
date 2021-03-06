@@ -2,11 +2,11 @@ import "./Beginning.css";
 
 const Beginning = () => {
   return (
-    <div class="beggining">
+    <div className="beggining">
       <div>
-        <div class="row">
+        <div className="row">
           <p className="title">Hello trainer!</p>
-          <img alt="" src="https://static.wikia.nocookie.net/nintendo/images/2/2b/SM_Red.png/revision/latest?cb=20161103045713&path-prefix=en"/>
+          <img alt="" src="https://www.seekpng.com/png/full/201-2011786_red-by-xous-54-red-pokemon-trainer-png.png"/>
         </div>
       </div>
       <p>Give me your name to start</p>
