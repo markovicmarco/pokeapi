@@ -1,21 +1,58 @@
-.beggining>div{
+.beginning .banner{
   padding-top: 50px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
+.beginning :nth-child(3){
+  margin: 0 auto;
+  max-width: 350px;
+  position: relative
+}
 
-.beggining img {
+.beginning :nth-child(3) button{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  outline: 0;
+  background: rgb(64, 255, 47);
+  color: white;
+}
+
+.beginning button i {
+  font-size: 1.3rem;
+}
+
+
+.beginning img {
   width: 120px;
 }
 
-p.title{
-  font-size: 1.8rem;
-  padding: 0;
+.beginning p.title{
+  font-size: 1.3rem;
+  text-align: center;
+  font-weight: 500;
+  padding: 20px 0 10px 0;
   margin: 0;
 }
-.beggining input{
+.beginning h2.title{
+  display: inline-block;
+  font-size: 2rem;
+  text-align: right;
+  padding-top: 20px;
+  margin: 0;
+}
+
+
+
+.beginning input{
+  width: 100%;
   border: none;
   border-radius: 30px;
   outline: none;
@@ -24,5 +61,6 @@ p.title{
   box-shadow: -10px -10px 15px #3a3a3a17,
   10px 10px 15px #42424259;
   transition: .5s;
+  padding: 10px 55px 10px 15px;
   height: 50px;
 }
