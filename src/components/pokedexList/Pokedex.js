@@ -70,6 +70,7 @@ const Pokedex = () => {
     if(e.target.value !== type){
       setType(e.target.value);
       setIsLoading(true);
+      setCurrentPage(1);
     } 
   }
   const [newPokemonList, setNewPokemonList] = useState([])
@@ -128,6 +129,8 @@ const Pokedex = () => {
       className="container"
       style={{color: isDark ? 'white' : 'black'}}>
 
+<div className="loading-spinner"></div>
+
         <button className="log-out"
         style={{color: isDark ? 'white' : 'black'}}
         onClick={() => logOut()}>
@@ -167,7 +170,9 @@ const Pokedex = () => {
           : isLoading ? (
               <select 
               className={isDark ? 'dark' : ''}
-              disabled></select>
+              disabled>
+                <option>{type}</option>
+              </select>
             ) : (
               <select 
               onClick={handleType}
@@ -184,7 +189,7 @@ const Pokedex = () => {
               </select>)
           }
         </div>
-{ isLoading ? 'isLoading...' : (
+{ isLoading ? <div className="loading-spinner"></div> : (
   <>
         <div className="row">
         {type ? 

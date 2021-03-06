@@ -150,6 +150,24 @@ p.title.pokedex{
   transform: scale(1);
 }
 
+.loading-spinner{
+  border: 4px solid rgba(0,0,0,.1);
+  margin: 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #0084ff;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 
 select{
   width: 100%;
