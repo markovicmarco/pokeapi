@@ -163,7 +163,7 @@ const Pokedex = () => {
         changePage={handlePage}/>
       </div>
       <footer className="footer" >
-                <h2 style={{paddingTop:"30px", textShadow: "2px 2px 2px grey"}}>Create by Developers:</h2>
+                <h2 style={{paddingTop:"30px", textShadow: "2px 2px 2px grey"}}>Created by Developers:</h2>
                 <br />
                 <ul style={{listStyle:"none", textAlign:"center"}}>
                   <li className="contac">Andres Mendoza  {" "} 
