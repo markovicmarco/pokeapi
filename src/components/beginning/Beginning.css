@@ -1,11 +1,16 @@
 .beggining{
   height: 100vh;
   background: white;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .beggining img {
   width: 200px;
+}
+
+p.title{
+  font-size: 1.8rem;
+  position: relative;
+  left: 40px;
 }
