@@ -11,7 +11,8 @@ import {
     Divider,
     Header,
     Icon,
-    List
+    List,
+    Button
 } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -130,7 +131,7 @@ const Pokemon = () => {
 
             <Grid columns={2} centered stackable>
 
-                <Grid.Column width={11}>
+                <Grid.Column width={12}>
                     <Segment stacked raised>
                         <Image src={pokemon.image} size='medium' centered className='imagefix'/>
                         <Grid columns='2' textAlign='center'>
@@ -152,30 +153,22 @@ const Pokemon = () => {
                         </Divider>
 
                     </Segment>
+                    
+                    
 
-                    <Segment textAlign='center'>
-                    <Grid stackable columns='4'>
-                {pokemon.moves.map(res =>
-                <Grid.Column>
-                  {upperCase(res.move.name)}
-                  </Grid.Column>
-                  )}
-            </Grid>
-                  </Segment>
 
-                    {/* <Grid stackable columns='equal'>
-                {pokemon
-                    .habilities
-                    .map(res =><Grid.Column>
-                      <Segment textAlign='center'>{upperCase(res.ability.name)}</Segment></Grid.Column>)}
-            </Grid> */}
-                </Grid.Column>
 
-                <Grid.Column width={5}>
-                    <Segment centered>
-                        <Header as='h2' content='Types' textAlign='center'/>
-                        <Divider/>
-                      <Grid columns='equal'>
+
+
+
+
+<Grid columns='2' stackable>
+    <Grid.Column>
+        <Segment centered>
+            <Divider horizontal>
+                <Header as='h1' className='cap' content='Type'/>
+                </Divider>
+                <Grid columns='equal'>
                         {pokemon.type.map(r =>
                             <Grid.Column textAlign='center'>
                               <Label
@@ -188,16 +181,66 @@ const Pokemon = () => {
                             </Grid.Column>)}
                   </Grid>
                     </Segment>
+  </Grid.Column>
 
-                    <Segment>
+  <Grid.Column>
+    <Segment>
+      <Divider horizontal>
+        <Header as='h1' className='cap' content='Abilities'/>
+        </Divider>
+        <Grid stackable columns='equal'>
+          {pokemon.habilities.map(res =>
+          <Grid.Column>
+            <Segment textAlign='center'>{upperCase(res.ability.name)}</Segment>
+            </Grid.Column>
+            )}
+            </Grid>
+            </Segment>
+            </Grid.Column>
+            
+</Grid>
 
-                        <Header as='h2' content='Stats Base' textAlign='center'/>
-                        <Divider/>
+
+
+
+
+                  <Segment>
+                    <Divider horizontal>
+                        <Header as='h1' className='cap' content='Stats Base'/>
+                      </Divider>
                         <ProgressBar value={pokemon.hp} label='HP'/>
                         <ProgressBar value={pokemon.speed} label='Speed'/>
                         <ProgressBar value={pokemon.attack} label='Attack'/>
                         <ProgressBar value={pokemon.defense} label='Defense'/>
                     </Segment>
+                          
+                          </Grid.Column>
+
+                <Grid.Column width={4}>
+                    
+<Segment>
+<Button icon='map marker alternate' color='green' content='Encounters' fluid/>
+    </Segment>
+
+<Segment>
+  <Divider horizontal>
+    <Header as='h1' className='cap' content='Movements'/>
+    </Divider>
+    <Grid stackable columns='4'>
+
+    <List divided verticalAlign='middle' ordered relaxed animated>
+    
+      {pokemon.moves.map(res =>
+      
+        <List.Item>{upperCase(res.move.name)}</List.Item>
+        
+        )}
+        </List>
+        </Grid>
+</Segment>
+
+
+                    
                 </Grid.Column>
             </Grid>
 
