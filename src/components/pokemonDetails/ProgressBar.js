@@ -1,7 +1,7 @@
 import React from 'react';
 import { Progress, Grid, Label } from 'semantic-ui-react';
 
-export const ProgressBar = ({value, label, total = '150', type = 'ratio', size = 'normal'}) =>{
+const ProgressBar = ({value, label, total = '150', type = 'ratio', size = 'normal'}) =>{
 return (
   <>
   <Grid columns={2}>
@@ -13,3 +13,4 @@ return (
 </>
 )
 }
+export default ProgressBar
