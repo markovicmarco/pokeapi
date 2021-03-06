@@ -1,6 +1,6 @@
 import "./Beginning.css";
 
-const Beggining = () => {
+const Beginning = () => {
   return (
     <div class="beggining">
       Beggining
@@ -9,4 +9,4 @@ const Beggining = () => {
   )
 }
 
-export default Beggining;
+export default Beginning;

@@ -7,7 +7,7 @@ import {
   Route,
   Link,
 } from 'react-router-dom';
-import Beggining from  './components/beggining/Beggining.js';
+import Beginning from  './components/beginning/Beginning.js';
 import Pokedex from './components/pokedexList/Pokedex.js'
 import Pokemon from "./components/pokemonDetails/Pokemon";
 import Encounters from "./components/Location/Encounters.js";
@@ -33,7 +33,7 @@ export default function App() {
                 <Route path="/pokedex/pokemon/:id" component={Pokemon}/>
                 <Route path="/pokedex" component={Pokedex}/>
                 <Route path="/settings" component={Settings}/>
-                <Route path="/" component={Beggining}/>
+                <Route path="/" component={Beginning}/>
               </Switch>
             </Router>
           </div>
