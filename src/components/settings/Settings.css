@@ -6,7 +6,7 @@
 }
 
 .check-container.first input[type=checkbox]{
-  background: greenyellow
+  background: greenyellow;
 }
 .check-container.first input:checked[type="checkbox"]{
   background: #6c79db;

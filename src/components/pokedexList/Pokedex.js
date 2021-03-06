@@ -2,13 +2,12 @@ import PokedexItem from "./PokedexItem.js";
 import {useDarkMode, useNumItems} from "../../provider/AuthProvider.js";
 import {useState,useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
+import {useProtectedRoute} from '../../provider/AuthProvider.js';
 import axios from 'axios';
 import './Pokedex.css';
 import Pagination from "../Pagination.js";
 import Footer from './Footer'
-
-
-
+import {useSelector, useDispatch} from 'react-redux';
 
 
 const Pokedex = () => {
@@ -98,12 +97,43 @@ const Pokedex = () => {
     }
   }, [itemsPerPage, offset, type]);
 
+
+
+  const name = useSelector((state) => state.name);
+  const dispatch = useDispatch();
+
+  const {setAllowed} = useProtectedRoute()
+
+  const logOut = () => {
+    dispatch({
+      type: 'SET_NAME',
+      payload: ""
+    })
+    history.push('/');
+    setAllowed(false);
+  }
+
+
+
+
   return(
     <div>
       <div 
       className="container"
       style={{color: isDark ? 'white' : 'black'}}>
+
+        <button className="log-out"
+        style={{color: isDark ? 'white' : 'black'}}
+        onClick={() => logOut()}>
+          <i class="fas fa-sign-out-alt"></i>
+        </button>
+
         <h2 className="title">Pokedex</h2>
+
+        <p className="title pokedex">
+          Welcome {name}, here you can find your favorite pokemon
+        </p>
+
         <div>
           <div className="center check-container">
             <span>type</span>
