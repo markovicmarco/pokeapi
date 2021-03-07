@@ -24,14 +24,14 @@ const Pokedex = () => {
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [offset, setOffest] = useState(0);
+  const [offset, setOffset] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
   const {itemsPerPage} = useNumItems();
 
 
   const handlePage = (page) => {
     setCurrentPage(page);
-    setOffest(itemsPerPage * (page-1));
+    setOffset(itemsPerPage * (page-1));
     window.scrollTo({ top: 0, behavior: "smooth", });
   }
 
@@ -78,6 +78,7 @@ const Pokedex = () => {
       setType(e.target.value);
       setIsLoading(true);
       setCurrentPage(1);
+      setOffset(0);
     } 
   }
   const [newPokemonList, setNewPokemonList] = useState([])
@@ -87,7 +88,6 @@ const Pokedex = () => {
       promise.then(res => {
         setNewPokemonList(res.data.pokemon);
         setTotalItems(res.data.pokemon.length);
-        setCurrentPage(1);
         setIsLoading(false);
       })
     }
