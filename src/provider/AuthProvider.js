@@ -17,15 +17,11 @@ const useProvideDark = () => {
 const useProvideProtected = () => {
   const [isAllowed, setIsAllowed] = useState(false);
 
-  const setAllowed = () => {
-    setIsAllowed(true);
+  const setAllowed = (value) => {
+    setIsAllowed(value);
   }
 
-  const setNotAllowed = () => {
-    setIsAllowed(false);
-  }
-
-  return {isAllowed, setAllowed, setNotAllowed}
+  return {isAllowed, setAllowed}
 }
 
 const useProvideNumItems = () => {

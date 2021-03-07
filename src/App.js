@@ -26,12 +26,15 @@ export default function App() {
                 <i className="fas fa-cog"></i>
               </Link>
               <Switch>
-                <Route path="/pokedex/pokemon/:id/encounters" component={Encounters}/>
-                {/* <ProtectedRoute path="/pokedex/pokemon/:id">
+                <ProtectedRoute path="/pokedex/pokemon/:id/encounters">
+                  <Encounters/>
+                </ProtectedRoute>
+                <ProtectedRoute path="/pokedex/pokemon/:id">
                   <Pokemon/>
-                </ProtectedRoute> */}
-                <Route path="/pokedex/pokemon/:id" component={Pokemon}/>
-                <Route path="/pokedex" component={Pokedex}/>
+                </ProtectedRoute>
+                <ProtectedRoute path="/pokedex">
+                  <Pokedex/>
+                </ProtectedRoute>
                 <Route path="/settings" component={Settings}/>
                 <Route path="/" component={Beginning}/>
               </Switch>

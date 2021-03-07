@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children, ...props}) => {
     <Route {...props} render={() => (isAllowed ? 
       children
     :
-      <Redirect to="/pokedex"/>)}
+      <Redirect to="/"/>)}
     /> 
 )
 }

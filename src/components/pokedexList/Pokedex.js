@@ -41,11 +41,18 @@ const Pokedex = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const history = useHistory();
 
+  const lowerCase = (str) => {
+    str = str.trim().split("");
+    str = str.map(letter => letter.toLowerCase());
+    return str.join("");
+  };
+
   const handleKeyDown = (event) => {
     if(event.key === 'Enter'){
-      history.push(`/pokedex/pokemon/${searchTerm}`);
+      history.push(`/pokedex/pokemon/${lowerCase(searchTerm)}`);
     }
   };
+
 
 
 
