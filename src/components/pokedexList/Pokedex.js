@@ -129,8 +129,6 @@ const Pokedex = () => {
       className="container"
       style={{color: isDark ? 'white' : 'black'}}>
 
-<div className="loading-spinner"></div>
-
         <button className="log-out"
         style={{color: isDark ? 'white' : 'black'}}
         onClick={() => logOut()}>
